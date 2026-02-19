@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
