@@ -10,7 +10,8 @@ export default defineConfig({
         target: 'http://localhost:3000',
         changeOrigin: true,
       },
-      '/relatorio': {
+      // Com barra no final para não capturar a rota do frontend /relatorios
+      '/relatorio/': {
         target: 'http://localhost:3000',
         changeOrigin: true,
       },
