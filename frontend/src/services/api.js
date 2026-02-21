@@ -1,4 +1,5 @@
-const BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+const BACKEND_RENDER = 'https://internship-attendance-program.onrender.com'
+const BASE_URL = (import.meta.env.VITE_API_URL || BACKEND_RENDER).replace(/\/$/, '')
 
 const MENSAGEM_ERRO_REDE = 'Não foi possível conectar. Tente novamente.'
 
@@ -10,7 +11,7 @@ const MENSAGEM_ERRO_REDE = 'Não foi possível conectar. Tente novamente.'
  * @throws {Error} Erro com mensagem amigável em caso de falha (4xx/5xx ou rede)
  */
 export async function registrarFrequencia(codigo, tipo) {
-  const url = BASE_URL ? `${BASE_URL}/frequencia` : '/frequencia'
+  const url = `${BASE_URL}/frequencia`
 
   let res
   try {
@@ -49,9 +50,7 @@ export async function buscarRelatorioSemanal({ dataInicio, dataFim } = {}) {
   if (dataInicio) search.set('dataInicio', dataInicio)
   if (dataFim) search.set('dataFim', dataFim)
   const query = search.toString()
-  const url = BASE_URL
-    ? `${BASE_URL}/relatorio/semanal${query ? `?${query}` : ''}`
-    : `/relatorio/semanal${query ? `?${query}` : ''}`
+  const url = `${BASE_URL}/relatorio/semanal${query ? `?${query}` : ''}`
 
   let res
   try {
