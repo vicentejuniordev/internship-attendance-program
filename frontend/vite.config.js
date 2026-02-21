@@ -5,8 +5,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // Em dev, sem VITE_API_URL, requisições a /frequencia são encaminhadas ao backend
+      // Em dev, sem VITE_API_URL, requisições à API são encaminhadas ao backend (lê backend/data/frequencias.json)
       '/frequencia': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/relatorio': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/estagiario': {
         target: 'http://localhost:3000',
         changeOrigin: true,
       },

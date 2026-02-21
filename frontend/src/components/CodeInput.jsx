@@ -15,7 +15,7 @@ function CodeInput({ value = "", onChange, id = "codigo", label = "Código", ...
         type="text"
         value={value}
         onChange={handleChange}
-        placeholder="Digite seu código"
+        placeholder="Ex.: EST-8F3A2"
         className="code-input"
         autoComplete="off"
         aria-required="true"

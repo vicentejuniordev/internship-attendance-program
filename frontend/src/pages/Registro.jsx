@@ -9,7 +9,9 @@ function Registro({ onErroCritico }) {
   const [loadingTipo, setLoadingTipo] = useState(null) // null | 'entrada' | 'saida'
   const [feedback, setFeedback] = useState(null) // { message, variant: 'success' | 'error' }
 
-  const codigoValido = typeof codigo === 'string' && codigo.trim() !== ''
+  // Formato do código único: EST- + 5 caracteres alfanuméricos
+  const formatoCodigoValido = /^EST-[A-Z0-9]{5}$/.test((codigo || '').trim())
+  const codigoValido = typeof codigo === 'string' && codigo.trim() !== '' && formatoCodigoValido
   const loading = loadingTipo !== null
   const desabilitarBotoes = !codigoValido || loading
 
